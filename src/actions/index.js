@@ -1,8 +1,8 @@
 const booksLoaded = (books) => {
-  return {
-      type: 'BOOKS_LOADED',
-      payload: books
-  }
+    return {
+        type: 'BOOKS_LOADED',
+        payload: books
+    }
 };
 
 export {
