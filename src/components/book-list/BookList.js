@@ -9,14 +9,14 @@ import {compose} from "../../utils";
 
 let BookList = (props) => {
     let {books, booksLoaded, bookStoreService} = props;
-    let items = books.map(book => <div className='book-list__item' key={book.id}><BookListItem book={book}/></div>);
+    let items = books.map(book => <div className='book-list__item col-3' key={book.id}><BookListItem book={book}/></div>);
 
     useEffect(() => {
         booksLoaded(bookStoreService.getBooks());
     }, [booksLoaded, bookStoreService]);
 
     return (
-        <div className='book-list'>
+        <div className='book-list row'>
             {items}
         </div>
     )

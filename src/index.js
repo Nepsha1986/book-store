@@ -8,6 +8,7 @@ import store from './store';
 import ErrorBoundary from "./components/error-boundary/ErrorBoundary";
 import BookstoreService from "./services/bookstore-service";
 import {BookstoreServiceProvider} from "./components/bookstore-service-context";
+import {Header} from "./components/header";
 
 const bookStoreService = new BookstoreService();
 
@@ -16,6 +17,7 @@ ReactDOM.render(
         <ErrorBoundary>
             <BookstoreServiceProvider value={bookStoreService}>
                 <Router>
+                    <Header/>
                     <App/>
                 </Router>
             </BookstoreServiceProvider>

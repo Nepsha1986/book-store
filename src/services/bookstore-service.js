@@ -4,17 +4,23 @@ export default class BookstoreService {
             {
                 id: 1,
                 title: 'Book 1',
-                description: 'Contrary to , Lorem Ipsum is not simply random text.'
+                img: 'https://www.placecage.com/640/360',
+                description: 'Contrary to , Lorem Ipsum is not simply random text.',
+                price: 52
             },
             {
                 id: 2,
                 title: 'Book 2',
-                description: 'Contrary to popular belief, Lorem Ipsum is not simply random text.'
+                img: 'https://loremflickr.com/640/360',
+                description: 'Contrary to popular belief, Lorem Ipsum is not simply random text.',
+                price: 78
             },
             {
                 id: 3,
                 title: 'Book 3',
-                description: 'Contrary to popular belief random text.'
+                img: 'https://www.placecage.com/640/360',
+                description: 'Contrary to popular belief random text.',
+                price: 99
             },
         ];
     }

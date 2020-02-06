@@ -1,0 +1,35 @@
+.site-header {
+    background: #b5c8ee;
+}
+
+.site-header__container {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.site-header__logo {
+    font-size: 24px;
+    text-transform: uppercase;
+}
+
+.site-header__cart {
+
+}
+
+.cart {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cart__icon {
+    font-size: 1.5rem;
+    margin-right: 5px;
+}
+
+.cart__total-items {
+    margin-right: 5px;
+}
