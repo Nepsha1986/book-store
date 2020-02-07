@@ -1,5 +1,5 @@
 import React from 'react';
-import BookList from '../book-list';
+import BookListContainer from '../../containers/book-list-container';
 
 let HomePage = () => {
     return (
@@ -8,7 +8,7 @@ let HomePage = () => {
                 <div className="col-12">
                     <h2>Home Page</h2>
 
-                    <BookList />
+                    <BookListContainer />
                 </div>
             </div>
         </div>
