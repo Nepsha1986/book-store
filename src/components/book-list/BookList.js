@@ -2,7 +2,7 @@ import React, {useEffect} from 'react';
 import {connect} from 'react-redux';
 
 import './style.css';
-import {booksLoaded, booksRequested, booksFetchError} from "../../actions";
+import {fetchBooks} from "../../actions";
 import {withBookstoreService} from '../hoc';
 import {BookListItem} from "../book-list-item";
 import {compose} from "../../utils";
@@ -14,20 +14,12 @@ let BookList = (props) => {
         books,
         isLoading,
         error,
-        booksLoaded,
-        bookStoreService,
-        booksRequested,
-        booksFetchError
+        fetchBooks
     } = props;
 
     useEffect(() => {
-        booksRequested();
-        bookStoreService.getBooks().then((books) => {
-            booksLoaded(books);
-        }).catch((error) => {
-            booksFetchError(error);
-        });
-    }, [booksLoaded, bookStoreService, booksRequested, booksFetchError]);
+        fetchBooks();
+    }, [fetchBooks]);
 
     let items = books.map(book =>
         <div className='book-list__item col-3' key={book.id}>
@@ -49,10 +41,10 @@ const mapStateToProps = (state) => {
     };
 };
 
-const mapDispatchToProps = {
-    booksLoaded,
-    booksRequested,
-    booksFetchError
+const mapDispatchToProps = (dispatch, {bookStoreService}) => {
+    return {
+        fetchBooks: fetchBooks(bookStoreService, dispatch)
+    }
 };
 
 export default compose(
