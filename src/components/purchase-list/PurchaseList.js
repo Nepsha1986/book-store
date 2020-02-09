@@ -7,48 +7,36 @@ const PurchaseList = ({items, total, onIncrease, onDecrease, onDelete}) => {
         <table className="table">
             <thead>
             <tr>
-                <th>
-                    #
-                </th>
-                <th>
-                    Item
-                </th>
-                <th>
-                    Count
-                </th>
-                <th>
-                    Price
-                </th>
-                <th>
-                    Action
-                </th>
+                <th>#</th>
+                <th>Item</th>
+                <th>Count</th>
+                <th>Price</th>
+                <th>Action</th>
             </tr>
             </thead>
             <tbody>
             {
-                items.map(item => {
+                items.map((item, index) => {
                     return (
                         <tr key={item.id}>
+                            <td>{index + 1}</td>
+                            <td>{item.name}</td>
+                            <td>{item.count}</td>
+                            <td>{item.total}</td>
                             <td>
-                                1
-                            </td>
-                            <td>
-                                {item.name}
-                            </td>
-                            <td>
-                                {item.count}
-                            </td>
-                            <td>
-                                {item.total}
-                            </td>
-                            <td>
-                                <button onClick={() => {onIncrease()}} className="btn btn-outline-primary mr-2">
+                                <button onClick={() => {
+                                    onIncrease()
+                                }} className="btn btn-outline-primary mr-2">
                                     <i className="fas fa-plus"></i>
                                 </button>
-                                <button onClick={() => {onDecrease()}} className="btn btn-outline-warning mr-2">
+                                <button onClick={() => {
+                                    onDecrease()
+                                }} className="btn btn-outline-warning mr-2">
                                     <i className="fas fa-minus"></i>
                                 </button>
-                                <button onClick={() => {onDelete()}} className="btn btn-outline-danger">
+                                <button onClick={() => {
+                                    onDelete()
+                                }} className="btn btn-outline-danger">
                                     <i className="fas fa-trash-alt"></i>
                                 </button>
                             </td>
@@ -79,9 +67,15 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = () => {
     return {
-        onIncrease: () => {console.log('Increase')},
-        onDecrease: () => {console.log('Decrease')},
-        onDelete: () => {console.log('Delete')}
+        onIncrease: () => {
+            console.log('Increase')
+        },
+        onDecrease: () => {
+            console.log('Decrease')
+        },
+        onDelete: () => {
+            console.log('Delete')
+        }
     }
 };
 
