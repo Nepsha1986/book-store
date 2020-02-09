@@ -1,7 +1,22 @@
 const initialState = {
     books: [],
     isLoading: true,
-    error: null
+    error: null,
+    cartItems: [
+        {
+            id: 1,
+            name: 'Some name',
+            count: 2,
+            total: 55
+        },
+        {
+            id: 4,
+            name: 'Some name 2',
+            count: 5,
+            total: 390
+        }
+    ],
+    total: 550
 };
 
 export const reducer = (state = initialState, action) => {

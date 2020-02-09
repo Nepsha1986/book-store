@@ -1,5 +1,5 @@
 import React from 'react';
-import {PurchaseList} from "../purchase-list";
+import PurchaseList from "../purchase-list";
 
 let CartPage = () => {
     return (

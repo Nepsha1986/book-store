@@ -1,3 +1,3 @@
-import {PurchaseList} from "./PurchaseList";
+import PurchaseList from "./PurchaseList";
 
-export {PurchaseList};
+export default PurchaseList;
