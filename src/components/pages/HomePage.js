@@ -1,5 +1,6 @@
 import React from 'react';
 import BookListContainer from '../../containers/book-list-container';
+import PurchaseList from "../purchase-list/PurchaseList";
 
 let HomePage = () => {
     return (
@@ -9,6 +10,7 @@ let HomePage = () => {
                     <h2>Home Page</h2>
 
                     <BookListContainer />
+                    <PurchaseList />
                 </div>
             </div>
         </div>

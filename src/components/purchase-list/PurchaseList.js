@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import './style.css';
 
 const PurchaseList = ({items, total, onIncrease, onDecrease, onDelete}) => {
+    console.log(items);
     return (
         <table className="table">
             <thead>
@@ -20,7 +21,7 @@ const PurchaseList = ({items, total, onIncrease, onDecrease, onDelete}) => {
                     return (
                         <tr key={item.id}>
                             <td>{index + 1}</td>
-                            <td>{item.name}</td>
+                            <td>{item.title}</td>
                             <td>{item.count}</td>
                             <td>{item.total}</td>
                             <td>
