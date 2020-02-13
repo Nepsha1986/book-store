@@ -2,8 +2,7 @@ const initialState = {
     books: [],
     isLoading: true,
     error: null,
-    cartItems: [],
-    total: 550
+    cartItems: []
 };
 
 export const reducer = (state = initialState, action) => {
@@ -29,13 +28,13 @@ export const reducer = (state = initialState, action) => {
                 isLoading: false,
                 error: action.payload
             };
-        case('ADD_BOOK_TO_CART'):
-            const bookId = action.payload;
-            const book = state.books.find(item => item.id === bookId);
-            const bookInCart = state.cartItems.find(item => item.id === bookId);
-            const bookInCartIndex = state.cartItems.indexOf(bookInCart);
+        case('ADD_BOOK_TO_CART'): {
+            let bookId = action.payload;
+            let book = state.books.find(item => item.id === bookId);
+            let bookInCart = state.cartItems.find(item => item.id === bookId);
+            let bookInCartIndex = state.cartItems.indexOf(bookInCart);
 
-            if(!bookInCart) {
+            if (!bookInCart) {
                 const cartItem = {
                     id: book.id,
                     title: book.title,
@@ -65,6 +64,46 @@ export const reducer = (state = initialState, action) => {
                     ]
                 }
             }
+        }
+
+        case('REMOVE_BOOK_FROM_CART'): {
+            let bookId = action.payload.id;
+            let bookInCart = state.cartItems.find(item => item.id === bookId);
+            let book = state.books.find(item => item.id === bookId);
+            let bookInCartIndex = state.cartItems.indexOf(bookInCart);
+            let count = action.payload.count >= bookInCart.count ? 'all' : action.payload.count;
+
+            if (!bookInCart) {
+                return {
+                    ...state
+                }
+            } else {
+                if (count === 'all') {
+                    return {
+                        ...state,
+                        cartItems: [
+                            ...state.cartItems.slice(0, bookInCartIndex),
+                            ...state.cartItems.slice(bookInCartIndex + 1),
+                        ]
+                    }
+                } else {
+                    const cartItem = {
+                        ...bookInCart,
+                        count: bookInCart.count - count,
+                        total: bookInCart.total - book.price
+                    };
+
+                    return {
+                        ...state,
+                        cartItems: [
+                            ...state.cartItems.slice(0, bookInCartIndex),
+                            cartItem,
+                            ...state.cartItems.slice(bookInCartIndex + 1),
+                        ]
+                    }
+                }
+            }
+        }
         default:
             return state;
     }

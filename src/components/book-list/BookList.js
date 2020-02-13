@@ -10,7 +10,7 @@ let BookList = ({books, onAddBook}) => {
         </div>);
 
     return (
-        <div className='book-list row'>{items}</div>
+        <div className='book-list row mb-5'>{items}</div>
     )
 };
 

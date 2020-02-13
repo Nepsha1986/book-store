@@ -11,7 +11,7 @@ const BookListItem = ({book, onAddBook}) => {
                 <h5 className="card-title">{title}</h5>
                 <p className="card-text">{description}</p>
                 <p className="card-text">${price}</p>
-                <button onClick={() => { onAddBook(id) }} className="btn btn-primary">Buy</button>
+                <button onClick={() => { onAddBook(id) }} className="btn btn-primary">Add to cart</button>
             </div>
         </div>
     )
