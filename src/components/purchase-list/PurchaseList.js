@@ -66,9 +66,9 @@ const PurchaseList = ({items, addBookToCart, removeBookFromCart}) => {
     )
 };
 
-const mapStateToProps = (state) => {
+const mapStateToProps = ({shoppingCart: {cartItems}}) => {
     return {
-        items: state.cartItems,
+        items: cartItems,
     }
 };
 

@@ -25,7 +25,7 @@ const Header = ({cartItems}) => {
 
 let mapStateToProps = (state) => {
     return {
-        cartItems: state.cartItems
+        cartItems: state.shoppingCart.cartItems
     }
 };
 

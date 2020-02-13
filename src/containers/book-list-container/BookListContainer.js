@@ -29,12 +29,8 @@ let BookListContainer = (props) => {
     )
 };
 
-const mapStateToProps = (state) => {
-    return {
-        books: state.books,
-        isLoading: state.isLoading,
-        error: state.error
-    };
+const mapStateToProps = ({booksList: {books, isLoading, error}}) => {
+    return { books, isLoading, error };
 };
 
 const mapDispatchToProps = (dispatch, {bookStoreService}) => {
