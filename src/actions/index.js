@@ -1,46 +1,65 @@
-const booksLoaded = (books) => {
+export const booksLoaded = (books) => {
     return {
         type: 'FETCH_BOOKS_SUCCESS',
         payload: books
     }
 };
 
-const booksRequested = () => {
+export const booksRequested = () => {
     return {
         type: 'FETCH_BOOKS_REQUEST'
     }
 };
 
-const booksFetchError = (error) => {
+export const booksFetchError = (error) => {
     return {
         type: 'FETCH_BOOKS_FAILURE',
         payload: error
     }
 };
 
-const fetchBooks = (bookStoreService, dispatch) => () => {
-    dispatch(booksRequested());
-    bookStoreService.getBooks()
-        .then(books => dispatch(booksLoaded(books)))
-        .catch(error => dispatch(booksFetchError(error)));
+export const fetchBooks = () => {
+    return {
+       type: 'FETCH_BOOKS'
+    }
 };
 
-const addBookToCart = (id) => {
+export const addBookToCart = (id) => {
     return {
         type: 'ADD_BOOK_TO_CART',
         payload: id
     }
 };
 
-const removeBookFromCart = (id, count = 1) => {
+export const removeBookFromCart = (id, count = 1) => {
     return {
         type: 'REMOVE_BOOK_FROM_CART',
-        payload: { id, count}
+        payload: {id, count}
     }
 };
 
-export {
-    fetchBooks,
-    addBookToCart,
-    removeBookFromCart
-}
+export const usersRequested = () => {
+    return {
+        type: 'FETCH_USERS_REQUEST'
+    }
+};
+
+export const usersLoaded = (users) => {
+    return {
+        type: 'USERS_FETCH_SUCCESS',
+        payload: users
+    }
+};
+
+export const usersFetchError = (error) => {
+    return {
+        type: 'USERS_FETCH_FAILURE',
+        payload: error
+    }
+};
+
+export const fetchUsers = () => {
+    return {
+        type: "GET_USERS"
+    }
+};

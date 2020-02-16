@@ -1,7 +1,6 @@
 import React, {useEffect} from 'react';
 import {connect} from 'react-redux';
 
-import './style.css';
 import {fetchBooks, addBookToCart} from "../../actions";
 import {withBookstoreService} from '../../components/hoc';
 import {compose} from "../../utils";
@@ -30,12 +29,14 @@ let BookListContainer = (props) => {
 };
 
 const mapStateToProps = ({booksList: {books, isLoading, error}}) => {
-    return { books, isLoading, error };
+    return {books, isLoading, error};
 };
 
-const mapDispatchToProps = (dispatch, {bookStoreService}) => {
+const mapDispatchToProps = (dispatch) => {
     return {
-        fetchBooks: fetchBooks(bookStoreService, dispatch),
+        fetchBooks: () => {
+            dispatch(fetchBooks())
+        },
         onAddBook: (id) => {
             dispatch(addBookToCart(id))
         }

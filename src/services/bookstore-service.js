@@ -30,4 +30,11 @@ export default class BookstoreService {
             }, 600)
         })
     }
+
+    async getAllUsers() {
+        return await fetch('https://reqres.in/api/users?page=2')
+            .then(response => response.json())
+            .then(data => data.data)
+            .catch(error => error)
+    }
 }
